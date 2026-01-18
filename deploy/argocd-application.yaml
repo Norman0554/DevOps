@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/your-user/devops-exam-app.git
+    repoURL: https://github.com/Norman0554/DevOps.git
     targetRevision: main
     path: helm/devops-exam
     helm:

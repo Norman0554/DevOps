@@ -1,4 +1,5 @@
 {{- if .Values.grafanaDashboard.enabled }}
+{{- $app := include "devops-exam.name" . -}}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -19,7 +20,7 @@ data:
           "title": "HTTP Request Duration (p95)",
           "targets": [
             {
-              "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{app=\"{{ include \"devops-exam.name\" . }}\"}[5m])) by (le))"
+              "expr": "histogram_quantile(0.95, sum(rate(http_request_duration_seconds_bucket{app=\"{{ $app }}\"}[5m])) by (le))"
             }
           ]
         },
@@ -28,7 +29,7 @@ data:
           "title": "Requests Per Second",
           "targets": [
             {
-              "expr": "sum(rate(http_request_duration_seconds_count{app=\"{{ include \"devops-exam.name\" . }}\"}[1m]))"
+              "expr": "sum(rate(http_request_duration_seconds_count{app=\"{{ $app }}\"}[1m]))"
             }
           ]
         }

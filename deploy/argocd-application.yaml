@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: devops-exam
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/your-user/devops-exam-app.git
+    targetRevision: main
+    path: helm/devops-exam
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: devops-exam
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

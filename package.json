@@ -1,0 +1,18 @@
+{
+  "name": "devops-exam-app",
+  "version": "1.0.0",
+  "description": "Minimal Node.js app for DevOps exam",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "node --test",
+    "lint": "node -e \"console.log('no lint configured')\""
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "prom-client": "^15.1.3"
+  }
+}

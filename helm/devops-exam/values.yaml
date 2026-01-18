@@ -1,7 +1,8 @@
 image:
-  repository: ghcr.io/your-user/devops-exam-app
-  tag: "latest"
+  repository: ghcr.io/norman0554/devops-exam-app
+  tag: "1.0.0"
   pullPolicy: IfNotPresent
+
 
 replicaCount: 1
 
